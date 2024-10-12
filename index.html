@@ -16,37 +16,101 @@
   </header>
 
   <main>
-    <div id="chat-container">
-      <div id="chat-box" aria-live="polite"></div>
-      <div id="message-input-container">
-        <input type="text" id="chat-input" placeholder="Напишите сообщение..." aria-label="Поле для чата">
-        <button id="send-message">Отправить</button>
+    <div id="profile-container">
+      <div id="profile-header">
+        <div id="profile-banner">
+          <img id="profile-banner-img" src="images/default-banner.jpg" alt="Шапка профиля">
+        </div>
+        <div id="profile-pic-container">
+          <img id="profile-pic" src="images/default-avatar.png" alt="Аватарка пользователя">
+        </div>
+        <h2 id="username">Имя Пользователя</h2>
       </div>
-    </div>
-
-    <div id="voice-message-container">
-      <button id="record-voice" aria-label="Записать голосовое сообщение">🎤 Записать голосовое сообщение</button>
-      <div id="voice-messages-list"></div>
     </div>
 
     <div id="premium-container">
       <h2>TTH Premium</h2>
       <button id="premium-button">Активировать TTH Premium</button>
       <p id="premium-status">TTH Premium неактивен.</p>
+      <button id="premium-info">Информация о TTH Premium</button>
+    </div>
+
+    <!-- Модальное окно профиля -->
+    <div id="profile-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>Имя Пользователя</h1>
+        <p>Никнейм: <span id="nickname-display">@nickname</span></p>
+        <p>Статус: В сети</p>
+        <p>О себе: Ваше описание здесь</p>
+        <button id="edit-profile">Редактировать профиль</button>
+        <button id="logout">Выйти</button>
+      </div>
+    </div>
+
+    <section id="posts-section">
+      <div id="post-container">
+        <textarea id="post-input" placeholder="Напишите свой пост здесь..." aria-label="Поле для поста"></textarea>
+        <button id="publish-post">Опубликовать</button>
+      </div>
+      <div id="posts-container" aria-live="polite"></div>
+    </section>
+
+    <div id="chat-container">
+      <div id="chat-box" aria-live="polite"></div>
+
+      <div id="message-input-container">
+        <input type="text" id="chat-input" placeholder="Напишите сообщение..." aria-label="Поле для чата">
+        <button id="send-message">Отправить</button>
+      </div>
+    </div>
+
+    <div id="channels-container">
+      <h2>Каналы</h2>
+      <ul id="channels-list"></ul>
+      <input type="text" id="new-channel-name" placeholder="Имя канала" aria-label="Имя нового канала">
+      <button id="add-channel">Добавить канал</button>
+    </div>
+
+    <div id="voice-container">
+      <button id="record-button" aria-label="Записать голосовое сообщение">Записать</button>
+      <button id="stop-button" aria-label="Остановить запись">Стоп</button>
+    </div>
+
+    <div id="voice-message-container">
+      <button id="record-voice" aria-label="Записать голосовое сообщение">🎤 Записать голосовое сообщение</button>
+      <div id="voice-messages-list"></div>
     </div>
   </main>
 
-  <aside id="settings-menu" role="dialog">
-    <button id="back-settings">Назад</button>
-    <h2>Настройки</h2>
-    <button id="toggle-theme">Переключить тему</button>
+  <aside id="profile-menu" role="dialog" aria-labelledby="profile-menu-title">
+    <button id="back-profile" aria-label="Назад к главному">Назад</button>
+    <h2 id="profile-menu-title">Редактирование профиля</h2>
+    <input type="text" id="edit-name" placeholder="Ваше имя" aria-label="Редактировать имя">
+    <input type="text" id="edit-nickname" placeholder="Ваш никнейм (@nickname)" aria-label="Редактировать никнейм">
+    <input type="file" id="avatar-upload" accept="image/*" aria-label="Загрузить аватарку">
+    <button id="save-profile">Сохранить</button>
+  </aside>
+
+  <aside id="settings-menu" role="dialog" aria-labelledby="settings-menu-title">
+    <button id="back-settings" aria-label="Назад к главному">Назад</button>
+    <h2 id="settings-menu-title">Настройки</h2>
+    <button id="toggle-theme" aria-label="Переключить тему">Переключить тему</button>
+    <button id="clear-chat" aria-label="Очистить чат">Очистить чат</button>
+    <button id="logout" aria-label="Выйти">Выйти</button>
   </aside>
 
   <!-- Подключение скриптов -->
-  <script src="js/app.js"></script>
   <script src="js/auth.js"></script>
+  <script src="js/profile.js"></script>
   <script src="js/chat.js"></script>
+  <script src="js/posts.js"></script>
+  <script src="js/channels.js"></script>
+  <script src="js/settings.js"></script>
   <script src="js/voice.js"></script>
   <script src="js/premium.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/voiceMessages.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
